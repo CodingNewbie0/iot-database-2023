@@ -73,3 +73,32 @@ SELECT b.userID AS '아이디'
      , b.price * b.amount AS '판매액'
   FROM buytbl AS b;
 
+-- 정렬 Order BY : default ASC 안적어도 오름차순
+-- 내림차순 DESC
+SELECT name
+     , birthYear
+     , height
+  FROM usertbl
+ WHERE birthYear > 1069
+ ORDER BY height DESC , birthYear;
+
+-- 중복제거 / 중복제거할 컬럼만
+SELECT DISTINCT addr
+  FROM usertbl;
+  
+-- LIMIT 갯수 제한
+USE homeplus;
+
+SELECT * FROM indexTbl
+ LIMIT 5;
+
+USE sqlDB;
+
+-- 조회하면서 새로운 테이블 생성 
+CREATE TABLE elec_buytbl_new
+SELECT num
+	 , prodName
+     , price
+  FROM buytbl
+ WHERE groupName = '전자';
+
